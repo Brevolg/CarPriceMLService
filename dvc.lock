@@ -1,0 +1,53 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python code/datasets/preprocess.py
+    deps:
+    - path: code/datasets/preprocess.py
+      hash: md5
+      md5: 49e36127dbe3025f1ac8f7543ba279b0
+      size: 629
+    - path: data/raw/pre-owned cars.csv
+      hash: md5
+      md5: 2c367291a730d95dffdcf62112caa211
+      size: 371488
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 963ac46fc7c3fd70d731a7d76ec954df
+      size: 4172
+    - path: data/processed/train.csv
+      hash: md5
+      md5: e889ac2e274df0974f6c81f09f6d7db0
+      size: 16540
+  train:
+    cmd: python code/models/train.py
+    deps:
+    - path: code/models/train.py
+      hash: md5
+      md5: 989e17dfb7637ea9dd9d5baa8e8f3c70
+      size: 1470
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 963ac46fc7c3fd70d731a7d76ec954df
+      size: 4172
+    - path: data/processed/train.csv
+      hash: md5
+      md5: e889ac2e274df0974f6c81f09f6d7db0
+      size: 16540
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: b62c58bcce769a470051e8ffb8c1cc15
+      size: 5015489
+  deploy:
+    cmd: docker compose -f code/deployment/docker-compose.yml up --build -d
+    deps:
+    - path: code/deployment/docker-compose.yml
+      hash: md5
+      md5: cfe81085e8e731a205bda1e099673503
+      size: 307
+    - path: models/model.pkl
+      hash: md5
+      md5: b62c58bcce769a470051e8ffb8c1cc15
+      size: 5015489

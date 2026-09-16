@@ -13,3 +13,5 @@ venv/
 .dvc/cache/
 .vscode/
 .idea/
+data/processed/
+models/model.pkl

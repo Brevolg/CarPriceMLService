@@ -54,7 +54,7 @@ for name, model in models.items():
 
         mlflow.log_metric("MAE",mae)
         mlflow.log_metric("R2",r2)
-        mlflow.sklearn.log_model(model,name)
+        mlflow.sklearn.log_model(model,name, serialization_format="cloudpickle")
 
         if mae < best_mae:
             best_mae = mae
