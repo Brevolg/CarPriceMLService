@@ -1,6 +1,3 @@
-ML pipeline for car price prediction using DVC, MLflow, FastAPI and
-Streamlit.
-
 ## Run pipeline
 
 Install dependencies:
