@@ -6,8 +6,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 
-train = pd.read_csv("../../data/processed/train.csv")
-test = pd.read_csv("../../data/processed/test.csv")
+train = pd.read_csv("data/processed/train.csv")
+test = pd.read_csv("data/processed/test.csv")
 
 features = [
     "make_year",
@@ -60,5 +60,4 @@ for name, model in models.items():
             best_mae = mae
             best_model = model
 
-joblib.dump(best_model,"../../models/model.pkl")
-print("done")
+joblib.dump(best_model,"models/model.pkl")

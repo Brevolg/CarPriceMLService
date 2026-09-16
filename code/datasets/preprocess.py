@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-df = pd.read_csv("../../data/raw/pre-owned cars.csv")
+df = pd.read_csv("data/raw/pre-owned cars.csv")
 print(df.columns)
 df = df.dropna()
 
@@ -28,5 +28,5 @@ train, test = train_test_split(
 print("Train size", train.shape)
 print("Test size", test.shape)
 
-train.to_csv("../../data/processed/train.csv", index=False)
-test.to_csv("../../data/processed/test.csv",index=False)
+train.to_csv("data/processed/train.csv", index=False)
+test.to_csv("data/processed/test.csv", index=False)

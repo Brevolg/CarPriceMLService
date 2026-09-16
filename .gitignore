@@ -7,3 +7,9 @@ mlflow.db
 .DS_Store
 .vscode/
 .idea/
+venv/
+.venv/
+*.db
+.dvc/cache/
+.vscode/
+.idea/
